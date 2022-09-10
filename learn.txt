@@ -1,0 +1,3 @@
+Django comes with an admin panel, that's why the initial "18 unapplied migrations warning" comes in. Migrate it to the initial sqlite3 db first.
+
+Models in models.py will define the table structure of the respective tables in the database.
