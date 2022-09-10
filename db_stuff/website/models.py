@@ -9,3 +9,8 @@ class Member(models.Model):
     age = models.IntegerField
 
 # In SQL we would define the type of data in the table here, Integer, Text, Null, whatever. We do the same here! A table named "Member" is created here.
+
+    def __str__(self):
+        return self.fname + ' ' + self.lname + ' - ' + self.email
+
+# Doing this will allow the table in admin panel to not show "Member Model (i)" and instead give their name and email!
