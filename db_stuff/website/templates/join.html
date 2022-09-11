@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+</head>
+<body>
+    <h1>Join Today!</h1>
+    <form action="{% url 'join' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="E-Mail" required>
+        <input type="text" name="fname" placeholder="First Name" required>
+        <input type="text" name="lname" placeholder="Last Name" required>
+        <input type="password" name="passwd" placeholder="Enter new Password" required>
+        <input type="number" name="age" placeholder="Age" required>
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
