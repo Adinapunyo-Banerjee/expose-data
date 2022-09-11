@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Base{% endblock %}</title>
+
+    <!-- This way "Base" will be the default block title if not overriden! -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="px-5 py-4 bg-green-200 border border-2 text-bold border-green-500 rounded mx-5 my-4 green-600" id="success-msg">
+                    {{ message }}
+                </div>
+            {% endif %}
+
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="px-5 py-4 bg-red-200 border border-2 text-bold border-red-500 rounded mx-5 my-4 green-600">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <div class="px-5 py-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
+
+<!-- Add all headers, footers, bootstrap/tailwind to this page, and it will reflect on the pages that derieve this base page! -->

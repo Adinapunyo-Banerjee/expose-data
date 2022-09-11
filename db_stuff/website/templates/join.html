@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us</title>
-</head>
-<body>
-    <h1>Join Today!</h1>
-    <form action="{% url 'join' %}" method="POST">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1 class="text-2xl">Join Today!</h1><br>
+    <form action="{% url 'join' %}" method="POST" class="flex flex-col gap-2">
         {% csrf_token %}
-        <input type="email" name="email" placeholder="E-Mail" required>
-        <input type="text" name="fname" placeholder="First Name" required>
-        <input type="text" name="lname" placeholder="Last Name" required>
-        <input type="password" name="passwd" placeholder="Enter new Password" required>
-        <input type="number" name="age" placeholder="Age" required>
-        <button type="submit">Sign Up</button>
+        <input class="px-2 py-2 rounded bg-slate-200" type="email" name="email" placeholder="E-Mail" value="{{ email }}">
+        <input class="px-2 py-2 rounded bg-slate-200" type="text" name="fname" placeholder="First Name" required value="{{ fname }}">
+        <input class="px-2 py-2 rounded bg-slate-200" type="text" name="lname" placeholder="Last Name" required value="{{ lname }}">
+        <input class="px-2 py-2 rounded bg-slate-200" type="password" name="passwd" placeholder="Enter new Password" required value="{{ passwd }}">
+        <input class="px-2 py-2 rounded bg-slate-200" type="number" name="age" placeholder="Age" required value="{{ age }}">
+        <button class="bg-slate-400 px-2 py-2 rounded mx-72" type="submit">Sign Up</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

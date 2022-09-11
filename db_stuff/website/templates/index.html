@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members</title>
-</head>
-<body>
-    Consumer's data:
-    <br><br>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Customer Data
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="text-xl text-bold">Consumer's data:</div>
     {% for item in all %}
+    <div class="bg-slate-200 my-4 px-4 border border-slate-500 rounded">
         <br>
         Name :<strong> {{ item.fname }} {{ item.lname }}</strong><br>
         Email : {{ item.email }} <br>
         Age : {{ item.age }} <br><br>
         <hr>
+    </div>
     {% endfor %}
-</body>
-</html>
+</div>
+<br>
+<a class="bg-blue-200 px-4 py-4 my-5 border border-blue-500 rounded" href="/join">Join this list</a><br><br>
+{% endblock %}
