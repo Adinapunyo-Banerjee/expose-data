@@ -1,3 +1,5 @@
 Django comes with an admin panel, that's why the initial "18 unapplied migrations warning" comes in. Migrate it to the initial sqlite3 db first.
 
 Models in models.py will define the table structure of the respective tables in the database.
+
+__str__ is used mostly to display the class in a string format for easy understanding and debugging in python!
